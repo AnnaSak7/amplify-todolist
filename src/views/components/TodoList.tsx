@@ -45,6 +45,7 @@ const TodoList: React.FC = () => {
         ) : (
           todoList.map((item) => (
             <TodoItem
+              key={item.id}
               id={item.id}
               content={item.content}
               isDone={item.isDone}
