@@ -7,8 +7,11 @@ import {
   FormErrorMessage,
   Input,
 } from "@chakra-ui/react";
+import { useAppDispatch } from "../../stores/hooks";
+import { createTodo } from "../../stores/slices/todo/todoSlice";
 
 const AddTodo: React.FC = () => {
+  const dispatch = useAppDispatch();
   const {
     handleSubmit,
     register,
@@ -18,7 +21,7 @@ const AddTodo: React.FC = () => {
 
   const onSubmit = (data: { content: string }) => {
     const { content } = data;
-    console.log({ content });
+    dispatch(createTodo(content));
     reset(); // reset the input field after submitting
   };
   return (

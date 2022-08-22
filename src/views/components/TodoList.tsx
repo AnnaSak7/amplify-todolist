@@ -8,20 +8,24 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { TodoItem } from "./TodoItem";
+import { useAppSelector } from "../../stores/hooks";
+import { selectTodoList } from "../../stores/slices/todo/todoSlice";
 
 const TodoList: React.FC = () => {
-  const todoList = [
-    { id: "aaa", content: "kkkkk", isDone: true },
-    { id: "bbb", content: "lllll", isDone: false },
-    { id: "ccc", content: "mmmmm", isDone: true },
-    { id: "ddd", content: "nnnnn", isDone: true },
-    { id: "eee", content: "ooooo", isDone: false },
-    { id: "fff", content: "ppppp", isDone: true },
-    { id: "ggg", content: "qqqqq", isDone: false },
-    { id: "hhh", content: "rrrrr", isDone: true },
-    { id: "iii", content: "sssss", isDone: false },
-    { id: "jjj", content: "ttttt", isDone: true },
-  ];
+  // const todoList = [
+  //   { id: "aaa", content: "kkkkk", isDone: true },
+  //   { id: "bbb", content: "lllll", isDone: false },
+  //   { id: "ccc", content: "mmmmm", isDone: true },
+  //   { id: "ddd", content: "nnnnn", isDone: true },
+  //   { id: "eee", content: "ooooo", isDone: false },
+  //   { id: "fff", content: "ppppp", isDone: true },
+  //   { id: "ggg", content: "qqqqq", isDone: false },
+  //   { id: "hhh", content: "rrrrr", isDone: true },
+  //   { id: "iii", content: "sssss", isDone: false },
+  //   { id: "jjj", content: "ttttt", isDone: true },
+  // ];
+
+  const todoList = useAppSelector(selectTodoList);
   return (
     <Flex flexDir="column" align="center">
       <Center mb={8}>
@@ -36,7 +40,7 @@ const TodoList: React.FC = () => {
         borderRadius="md"
         p={4}
         maxH="65vh"
-        overflow="scroll"
+        // overflow="scroll"
       >
         {todoList.length === 0 ? (
           <Text align="center" fontWeight="bold" fontSize="lg">
