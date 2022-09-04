@@ -7,12 +7,17 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { DataStore } from "aws-amplify";
 import { TodoItem } from "./TodoItem";
 import { useAppDispatch, useAppSelector } from "../../stores/hooks";
 import {
+  deleteTodoRealTime,
   fetchTodoListAsync,
+  fetchTodoRealTime,
   selectTodoList,
+  updateTodoRealTime,
 } from "../../stores/slices/todo/todoSlice";
+import { Todo } from "../../models";
 
 const TodoList: React.FC = () => {
   // const todoList = [
@@ -36,6 +41,26 @@ const TodoList: React.FC = () => {
       await dispatch(fetchTodoListAsync());
     };
     fetchTodoList();
+  }, [dispatch]);
+
+  useEffect(() => {
+    // detect the todo table realtime
+    const subscription = DataStore.observe(Todo).subscribe((msg) => {
+      switch (msg.opType) {
+        case "INSERT":
+          dispatch(fetchTodoRealTime(msg.element));
+          break;
+        case "UPDATE":
+          dispatch(updateTodoRealTime(msg.element));
+          break;
+        case "DELETE":
+          dispatch(deleteTodoRealTime(msg.element));
+          break;
+      }
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
   }, [dispatch]);
 
   return (

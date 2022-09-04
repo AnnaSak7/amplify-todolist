@@ -6,7 +6,6 @@ import {
 } from "react-icons/ri";
 import { BsFillTrashFill } from "react-icons/bs";
 import { useAppDispatch } from "../../stores/hooks";
-import { deleteTodo, updateTodo } from "../../stores/slices/todo/todoSlice";
 import { deleteTodoApi, updateTodoApi } from "../../stores/slices/todo/todoAPI";
 
 type Props = {
