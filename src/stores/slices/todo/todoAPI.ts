@@ -45,3 +45,20 @@ export const updateTodoApi = async (data: { id: string; isDone: boolean }) => {
     throw error;
   }
 };
+
+// delete todo
+export const deleteTodoApi = async (data: { id: string }) => {
+  const { id } = data;
+  try {
+    const deleteItem = await DataStore.query(Todo, id);
+
+    if (!deleteItem) {
+      alert("No such todo");
+      return;
+    }
+
+    await DataStore.delete(deleteItem);
+  } catch (error) {
+    throw error;
+  }
+};

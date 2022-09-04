@@ -7,7 +7,7 @@ import {
 import { BsFillTrashFill } from "react-icons/bs";
 import { useAppDispatch } from "../../stores/hooks";
 import { deleteTodo, updateTodo } from "../../stores/slices/todo/todoSlice";
-import { updateTodoApi } from "../../stores/slices/todo/todoAPI";
+import { deleteTodoApi, updateTodoApi } from "../../stores/slices/todo/todoAPI";
 
 type Props = {
   id: string;
@@ -26,8 +26,13 @@ export const TodoItem: React.FC<Props> = ({ id, content, isDone }) => {
       console.error(error);
     }
   };
-  const handleDelete = () => {
-    dispatch(deleteTodo(id));
+  const handleDelete = async () => {
+    try {
+      const data = { id };
+      await deleteTodoApi(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
