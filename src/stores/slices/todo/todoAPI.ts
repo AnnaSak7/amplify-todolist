@@ -26,4 +26,22 @@ export const fetchTodoListApi = async () => {
   }
 };
 
-//
+// update todo
+export const updateTodoApi = async (data: { id: string; isDone: boolean }) => {
+  const { id, isDone } = data;
+  try {
+    const original = await DataStore.query(Todo, id);
+    if (!original) {
+      alert("There is no todos");
+      return;
+    }
+
+    await DataStore.save(
+      Todo.copyOf(original, (updated) => {
+        updated.isDone = isDone;
+      })
+    );
+  } catch (error) {
+    throw error;
+  }
+};
