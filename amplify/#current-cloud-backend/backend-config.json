@@ -10,7 +10,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-08-22T11:35:30.796Z",
+              "apiKeyExpirationDate": "2023-09-02T14:10:21.025Z",
               "description": "amplifyTodoGql AuthKey"
             }
           },

@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifytodo-main-114422-authRole",
-      "UnauthRoleArn": "arn:aws:iam::712166012337:role/amplify-amplifytodo-main-114422-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::712166012337:role/amplify-amplifytodo-main-114422-authRole",
+      "AuthRoleName": "amplify-amplifytodo-main-160648-authRole",
+      "UnauthRoleArn": "arn:aws:iam::712166012337:role/amplify-amplifytodo-main-160648-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::712166012337:role/amplify-amplifytodo-main-160648-authRole",
       "Region": "eu-north-1",
-      "DeploymentBucketName": "amplify-amplifytodo-main-114422-deployment",
-      "UnauthRoleName": "amplify-amplifytodo-main-114422-unauthRole",
-      "StackName": "amplify-amplifytodo-main-114422",
-      "StackId": "arn:aws:cloudformation:eu-north-1:712166012337:stack/amplify-amplifytodo-main-114422/012bd3e0-21ff-11ed-98ca-0e3bc7a5192a",
-      "AmplifyAppId": "d21rgeoa1gj8fg"
+      "DeploymentBucketName": "amplify-amplifytodo-main-160648-deployment",
+      "UnauthRoleName": "amplify-amplifytodo-main-160648-unauthRole",
+      "StackName": "amplify-amplifytodo-main-160648",
+      "StackId": "arn:aws:cloudformation:eu-north-1:712166012337:stack/amplify-amplifytodo-main-160648/7d4d5800-2ac8-11ed-bb68-0a177abcc0ac",
+      "AmplifyAppId": "d3ok2ru6c9py7j"
     }
   },
   "api": {
@@ -23,22 +23,22 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-08-22T11:35:30.796Z",
+              "apiKeyExpirationDate": "2023-09-02T14:10:21.025Z",
               "description": "amplifyTodoGql AuthKey"
             }
           },
           "additionalAuthenticationProviders": []
         },
-        "GraphQLAPIIdOutput": "n3zg3fxtjfcudiw4bepyeco4zi",
-        "GraphQLAPIEndpointOutput": "https://d2cejbtivvhslprxrvyuabtp4i.appsync-api.eu-north-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-rafsbxp6e5bcbhdpftosrexmje"
+        "GraphQLAPIIdOutput": "iw54jmcm4jccdiv6nss7rcmdzm",
+        "GraphQLAPIEndpointOutput": "https://e6q64r3mtzf67dtbmpbi2avnmq.appsync-api.eu-north-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-sqyiejq5c5gs3e7v7xkroljxgy"
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifytodo-main-114422-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifytodo-main-160648-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiamplifyTodoGql"
       },
-      "lastPushTimeStamp": "2022-08-22T11:51:33.735Z",
-      "lastPushDirHash": "QILhkDGnR25vVKgSXUevOWL3VY4="
+      "lastPushTimeStamp": "2022-09-02T14:16:02.442Z",
+      "lastPushDirHash": "uEGTcSRVeoX5h+CibxngmMCAF+E="
     }
   }
 }

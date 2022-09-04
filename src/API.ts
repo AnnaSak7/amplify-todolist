@@ -4,14 +4,14 @@
 
 export type CreateTodoInput = {
   id?: string | null,
-  content: string,
-  isDone: boolean,
+  name: string,
+  description?: string | null,
   _version?: number | null,
 };
 
 export type ModelTodoConditionInput = {
-  content?: ModelStringInput | null,
-  isDone?: ModelBooleanInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
   and?: Array< ModelTodoConditionInput | null > | null,
   or?: Array< ModelTodoConditionInput | null > | null,
   not?: ModelTodoConditionInput | null,
@@ -57,18 +57,11 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type ModelBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
 export type Todo = {
   __typename: "Todo",
   id: string,
-  content: string,
-  isDone: boolean,
+  name: string,
+  description?: string | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -78,8 +71,8 @@ export type Todo = {
 
 export type UpdateTodoInput = {
   id: string,
-  content?: string | null,
-  isDone?: boolean | null,
+  name?: string | null,
+  description?: string | null,
   _version?: number | null,
 };
 
@@ -90,8 +83,8 @@ export type DeleteTodoInput = {
 
 export type ModelTodoFilterInput = {
   id?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  isDone?: ModelBooleanInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
   and?: Array< ModelTodoFilterInput | null > | null,
   or?: Array< ModelTodoFilterInput | null > | null,
   not?: ModelTodoFilterInput | null,
@@ -120,6 +113,44 @@ export type ModelTodoConnection = {
   startedAt?: number | null,
 };
 
+export type ModelSubscriptionTodoFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  name?: ModelSubscriptionStringInput | null,
+  description?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionTodoFilterInput | null > | null,
+  or?: Array< ModelSubscriptionTodoFilterInput | null > | null,
+};
+
+export type ModelSubscriptionIDInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  in?: Array< string | null > | null,
+  notIn?: Array< string | null > | null,
+};
+
+export type ModelSubscriptionStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  in?: Array< string | null > | null,
+  notIn?: Array< string | null > | null,
+};
+
 export type CreateTodoMutationVariables = {
   input: CreateTodoInput,
   condition?: ModelTodoConditionInput | null,
@@ -129,8 +160,8 @@ export type CreateTodoMutation = {
   createTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -148,8 +179,8 @@ export type UpdateTodoMutation = {
   updateTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -167,8 +198,8 @@ export type DeleteTodoMutation = {
   deleteTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -185,8 +216,8 @@ export type GetTodoQuery = {
   getTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -207,8 +238,8 @@ export type ListTodosQuery = {
     items:  Array< {
       __typename: "Todo",
       id: string,
-      content: string,
-      isDone: boolean,
+      name: string,
+      description?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -233,8 +264,8 @@ export type SyncTodosQuery = {
     items:  Array< {
       __typename: "Todo",
       id: string,
-      content: string,
-      isDone: boolean,
+      name: string,
+      description?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -246,26 +277,34 @@ export type SyncTodosQuery = {
   } | null,
 };
 
+export type OnCreateTodoSubscriptionVariables = {
+  filter?: ModelSubscriptionTodoFilterInput | null,
+};
+
 export type OnCreateTodoSubscription = {
   onCreateTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
   } | null,
+};
+
+export type OnUpdateTodoSubscriptionVariables = {
+  filter?: ModelSubscriptionTodoFilterInput | null,
 };
 
 export type OnUpdateTodoSubscription = {
   onUpdateTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -274,12 +313,16 @@ export type OnUpdateTodoSubscription = {
   } | null,
 };
 
+export type OnDeleteTodoSubscriptionVariables = {
+  filter?: ModelSubscriptionTodoFilterInput | null,
+};
+
 export type OnDeleteTodoSubscription = {
   onDeleteTodo?:  {
     __typename: "Todo",
     id: string,
-    content: string,
-    isDone: boolean,
+    name: string,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,

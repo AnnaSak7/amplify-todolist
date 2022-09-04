@@ -112,7 +112,7 @@
           ]
         },
         "Description": "amplifyTodoGql AuthKey",
-        "Expires": 1692704819
+        "Expires": 1693663926
       }
     },
     "GraphQLAPINONEDS95A13CF0": {
@@ -483,5 +483,5 @@
       }
     }
   },
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"9.0.0\",\"stackType\":\"api-AppSync\",\"metadata\":{}}"
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"9.2.1\",\"stackType\":\"api-AppSync\",\"metadata\":{}}"
 }
